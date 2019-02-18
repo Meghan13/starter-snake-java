@@ -126,7 +126,6 @@ public class Snake {
             System.out.println("Location is: " + xLocation + ", " + yLocation);
             int health = moveRequest.get("you").get("health").asInt();
             System.out.println("Health is: " + health);
-            int health = moveRequest.get("you").get("health").asInt();
 
             response.put("move", "right");
             return response;
