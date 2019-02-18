@@ -123,9 +123,15 @@ public class Snake {
             Map<String, String> response = new HashMap<>();
             int xLocation = moveRequest.get("you").get("body").elements().next().get("x").asInt();
             int yLocation = moveRequest.get("you").get("body").elements().next().get("y").asInt();
-            System.out.println("Location is: " + xLocation + ", " + yLocation);
+            //System.out.println("Location is: " + xLocation + ", " + yLocation);
+            int width = moveRequest.get("board").get("width").asInt();
+            int length = moveRequest.get("board").get("length").asInt();
+            if(xLocation<=0 || xLocation>=width-1)
+            {
+                response.put("move", "down");
+            }
             int health = moveRequest.get("you").get("health").asInt();
-            System.out.println("Health is: " + health);
+            //System.out.println("Health is: " + health);
 
             response.put("move", "right");
             return response;
