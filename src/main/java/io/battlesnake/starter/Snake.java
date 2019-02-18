@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Request;
 import spark.Response;
+import java.util.Random;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -126,11 +127,37 @@ public class Snake {
             System.out.println("Location is: " + xLocation + ", " + yLocation);
             int width = moveRequest.get("board").get("width").asInt();
             int height = moveRequest.get("board").get("height").asInt();
+            ArrayList<String> dangerMoves = new ArrayList<String>();
+
             String move = "right";
-            if(xLocation<=0 || xLocation>=width-1)
+
+            if(xLocation<=0)
             {
-                move = "down";
+                dangerMoves.add("left");
             }
+
+            if(xLocation>=width-1)
+            {
+                dangerMoves.add("right");
+            }
+
+            if(yLocation<=0)
+            {
+                dangerMoves.add("down");
+            }
+
+            if(yLocation>=height-1)
+            {
+                dangerMoves.add("up");
+            }
+
+            String[] posMoves = {"up", "down", "left", "right"};
+            Random rand = new Random();
+            while(dangerMoves.contains(move))
+            {
+                move = posMoves[rand.nextInt(4)];
+            }
+
             int health = moveRequest.get("you").get("health").asInt();
             //System.out.println("Health is: " + health);
 
