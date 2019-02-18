@@ -126,14 +126,15 @@ public class Snake {
             //System.out.println("Location is: " + xLocation + ", " + yLocation);
             int width = moveRequest.get("board").get("width").asInt();
             int length = moveRequest.get("board").get("length").asInt();
+            String move = "right";
             if(xLocation<=0 || xLocation>=width-1)
             {
-                response.put("move", "down");
+                move = "down";
             }
             int health = moveRequest.get("you").get("health").asInt();
             //System.out.println("Health is: " + health);
 
-            response.put("move", "right");
+            response.put("move", move);
             return response;
         }
 
