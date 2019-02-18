@@ -121,6 +121,9 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
+            JsonNode req = JSON_MAPPER.readTree(moveRequest.body());
+            int health = req.path("health").asLong();
+            System.out.println("Health is: " + health);
             response.put("move", "right");
             return response;
         }
