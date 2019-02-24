@@ -161,8 +161,8 @@ public class Snake {
                 while(snake.get("body").elements().hasNext()) // = true
                 {
                     JsonNode snakeBody = snake.get("body").elements().next();
-                    int sCoordX = snake.get("x").asInt();
-                    int sCoordY = snake.get("y").asInt();
+                    int sCoordX = snakeBody.get("x").asInt();
+                    int sCoordY = snakeBody.get("y").asInt();
                     searchBoard[sCoordY][sCoordX] = SNAKE;     
                 }
 
