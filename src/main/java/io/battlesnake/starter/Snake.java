@@ -167,9 +167,9 @@ public class Snake {
                 }
 
             }
-            for(int y = 0; y<height; y++;)
+            for(int y = 0; y<height; y++)
             {
-                for(int x = 0; x<width; x++;)
+                for(int x = 0; x<width; x++)
                 {
                     System.out.print(searchBoard[x][y]);
 
