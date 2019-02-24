@@ -129,9 +129,10 @@ public class Snake {
             int width = moveRequest.get("board").get("width").asInt();
             int height = moveRequest.get("board").get("height").asInt();
             ArrayList<String> dangerMoves = new ArrayList<String>();
+            final int SNAKE = 1;
 
             String move = "right";
-
+            //don't hit walls
             if(xLocation<=0)
             {
                 dangerMoves.add("left");
@@ -151,6 +152,31 @@ public class Snake {
             {
                 dangerMoves.add("up");
             }
+
+            //don't hit self
+            int[][] searchBoard = new int[height][width];
+            while(moveRequest.get("board").get("snakes").elements().hasNext()) // = true
+            {
+                JsonNode snake = moveRequest.get("board").get("snakes").elements().next();
+                while(snake.get("body").elements().hasNext()) // = true
+                {
+                    JsonNode snakeBody = snake.get("body").elements().next();
+                    sCoordX = snake.get("x");
+                    sCoordY = snake.get("y");
+                    searchBoard[sCoordY][sCoordX] = SNAKE;     
+                }
+
+            }
+            for(int y = 0; y<height; y++;)
+            {
+                for(int x = 0; x<width; x++;)
+                {
+                    System.out.print(searchBoard[x][y]);
+
+                }
+                System.out.println();
+            }
+
 
             String[] posMoves = {"up", "down", "left", "right"};
             Random rand = new Random();
