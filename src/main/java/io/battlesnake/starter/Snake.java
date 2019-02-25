@@ -167,23 +167,24 @@ public class Snake {
                 }
             }
             searchBoard[yLocation][xLocation] = MYHEAD;
+            int wallBuffer = 1;
 
-            if(xLocation>=width-1 || searchBoard[yLocation][xLocation + 1] == SNAKE)
+            if(xLocation>=width-1 - wallBuffer || searchBoard[yLocation][xLocation + 1] == SNAKE)
             {
                 dangerMoves.add("right");
             }
             
-            if(xLocation<=0 || searchBoard[yLocation][xLocation - 1] == SNAKE)
+            if(xLocation<=0 + wallBuffer || searchBoard[yLocation][xLocation - 1] == SNAKE)
             {
                 dangerMoves.add("left");
             }
 
-            if(yLocation>=height-1 || searchBoard[yLocation + 1][xLocation] == SNAKE)
+            if(yLocation>=height-1 - wallBuffer || searchBoard[yLocation + 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("down");
             }
 
-            if(yLocation<=0 || searchBoard[yLocation - 1][xLocation] == SNAKE)
+            if(yLocation<=0 + wallBuffer || searchBoard[yLocation - 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("up");
             }
