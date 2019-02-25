@@ -164,7 +164,7 @@ public class Snake {
                     int sCoordX = snakeBody.get("x").asInt();
                     int sCoordY = snakeBody.get("y").asInt();
                     searchBoard[sCoordY][sCoordX] = SNAKE;  
-                    snakeBody = snakeBody.elemnts().next();   
+                    snakeBody = snakeBody.elements().next();   
                 }
                 snake = snake.elements().next();
             }
