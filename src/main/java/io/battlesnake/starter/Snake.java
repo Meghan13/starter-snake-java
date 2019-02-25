@@ -146,12 +146,12 @@ public class Snake {
 
             if(yLocation<=0)
             {
-                dangerMoves.add("down");
+                dangerMoves.add("up");
             }
 
             if(yLocation>=height-1)
             {
-                dangerMoves.add("up");
+                dangerMoves.add("down");
             }
 
             //don't hit self
