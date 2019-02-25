@@ -170,7 +170,7 @@ public class Snake {
             {
                 for(int x = 0; x<width; x++)
                 {
-                    System.out.print(searchBoard[x][y]);
+                    System.out.print(searchBoard[y][x]);
 
                 }
                 System.out.println();
