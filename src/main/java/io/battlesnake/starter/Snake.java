@@ -167,22 +167,23 @@ public class Snake {
                 }
             }
             searchBoard[yLocation][xLocation] = MYHEAD;
-            if(xLocation + 1 == SNAKE)
+
+            if(searchBoard[yLocation][xLocation + 1] == SNAKE)
             {
                 dangerMoves.add("right");
             }
             
-            if(xLocation -1 == SNAKE)
+            if(searchBoard[yLocation][xLocation - 1] == SNAKE)
             {
                 dangerMoves.add("left");
             }
 
-            if(yLocation + 1 == SNAKE)
+            if(searchBoard[yLocation + 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("down");
             }
 
-            if(yLocation - 1 == SNAKE)
+            if(searchBoard[yLocation - 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("up");
             }
