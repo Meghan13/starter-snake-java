@@ -196,7 +196,7 @@ public class Snake {
                 }
                 System.out.println();
             }
-
+            System.out.println(dangerMoves);
 
             String[] posMoves = {"up", "down", "left", "right"};
             Random rand = new Random();
