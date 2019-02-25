@@ -134,25 +134,25 @@ public class Snake {
             final int MYHEAD = 2;
             String move = "right";
             //don't hit walls
-            if(xLocation<=0)
-            {
-                dangerMoves.add("left");
-            }
+            // if(xLocation<=0)
+            // {
+            //     dangerMoves.add("left");
+            // }
 
-            if(xLocation>=width-1)
-            {
-                dangerMoves.add("right");
-            }
+            // if(xLocation>=width-1)
+            // {
+            //     dangerMoves.add("right");
+            // }
 
-            if(yLocation<=0)
-            {
-                dangerMoves.add("up");
-            }
+            // if(yLocation<=0)
+            // {
+            //     dangerMoves.add("up");
+            // }
 
-            if(yLocation>=height-1)
-            {
-                dangerMoves.add("down");
-            }
+            // if(yLocation>=height-1)
+            // {
+            //     dangerMoves.add("down");
+            // }
 
             //don't hit self
             int[][] searchBoard = new int[height][width];
@@ -168,22 +168,22 @@ public class Snake {
             }
             searchBoard[yLocation][xLocation] = MYHEAD;
 
-            if(searchBoard[yLocation][xLocation + 1] == SNAKE)
+            if(xLocation>=width-1 || searchBoard[yLocation][xLocation + 1] == SNAKE)
             {
                 dangerMoves.add("right");
             }
             
-            if(searchBoard[yLocation][xLocation - 1] == SNAKE)
+            if(xLocation<=0 || searchBoard[yLocation][xLocation - 1] == SNAKE)
             {
                 dangerMoves.add("left");
             }
 
-            if(searchBoard[yLocation + 1][xLocation] == SNAKE)
+            if(yLocation>=height-1 || searchBoard[yLocation + 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("down");
             }
 
-            if(searchBoard[yLocation - 1][xLocation] == SNAKE)
+            if(yLocation<=0 || searchBoard[yLocation - 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("up");
             }
