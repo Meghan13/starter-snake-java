@@ -155,7 +155,7 @@ public class Snake {
 
             //don't hit self
             int[][] searchBoard = new int[height][width];
-            JsonNode snake = moveRequest.get("board").get("snakes");
+            
             for(JsonNode snake: moveRequest.get("board").get("snakes"))
             {
                 for(JsonNode snakeBody: snake.get("body"))
