@@ -155,18 +155,18 @@ public class Snake {
 
             //don't hit self
             int[][] searchBoard = new int[height][width];
-            JsonNode snake = moveRequest.get("board").get("snakes").elements().next();
-            while(snake != null) // = true
+            JsonNode snake = moveRequest.get("board").get("snakes").elements();
+            while(snake.next() != null) // = true
             {   
-                JsonNode snakeBody = snake.get("body").elements().next();
-                while(snakeBody != null) // = true
+                JsonNode snakeBody = snake.get("body").elements();
+                while(snakeBody.next() != null) // = true
                 {
                     int sCoordX = snakeBody.get("x").asInt();
                     int sCoordY = snakeBody.get("y").asInt();
                     searchBoard[sCoordY][sCoordX] = SNAKE;  
-                    snakeBody = snakeBody.next();   
+                    snakeBody = snakeBody.elemnts().next();   
                 }
-                snake = snake.next();
+                snake = snake.elements().next();
             }
             for(int y = 0; y<height; y++)
             {
