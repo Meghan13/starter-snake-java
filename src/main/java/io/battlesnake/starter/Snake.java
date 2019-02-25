@@ -158,13 +158,13 @@ public class Snake {
             while(moveRequest.get("board").get("snakes").elements().hasNext()) // = true
             {
                 JsonNode snake = moveRequest.get("board").get("snakes").elements().next();
-                while(snake.get("body").elements().hasNext()) // = true
-                {
-                    JsonNode snakeBody = snake.get("body").elements().next();
-                    int sCoordX = snakeBody.get("x").asInt();
-                    int sCoordY = snakeBody.get("y").asInt();
-                    searchBoard[sCoordY][sCoordX] = SNAKE;     
-                }
+                // while(snake.get("body").elements().hasNext()) // = true
+                // {
+                //     JsonNode snakeBody = snake.get("body").elements().next();
+                //     int sCoordX = snakeBody.get("x").asInt();
+                //     int sCoordY = snakeBody.get("y").asInt();
+                //     searchBoard[sCoordY][sCoordX] = SNAKE;     
+                // }
 
             }
             for(int y = 0; y<height; y++)
