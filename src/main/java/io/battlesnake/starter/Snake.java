@@ -128,9 +128,10 @@ public class Snake {
             System.out.println("Location is: " + xLocation + ", " + yLocation);
             int width = moveRequest.get("board").get("width").asInt();
             int height = moveRequest.get("board").get("height").asInt();
+
             ArrayList<String> dangerMoves = new ArrayList<String>();
             final int SNAKE = 1;
-
+            final int MYHEAD = 2;
             String move = "right";
             //don't hit walls
             if(xLocation<=0)
@@ -165,7 +166,27 @@ public class Snake {
                     searchBoard[sCoordY][sCoordX] = SNAKE;
                 }
             }
+            searchBoard[yLocation][xLocation] = MYHEAD;
+            if(xLocation + 1 == SNAKE || yLocation == SNAKE)
+            {
+                dangerMoves.add("right");
+            }
             
+            if(xLocation -1 == SNAKE || yLocation == SNAKE)
+            {
+                dangerMoves.add("left");
+            }
+
+            if(xLocation == SNAKE || yLocation + 1 == SNAKE)
+            {
+                dangerMoves.add("down");
+            }
+
+            if(xLocation == SNAKE || yLocation - 1 == SNAKE)
+            {
+                dangerMoves.add("up");
+            }
+
             for(int y = 0; y<height; y++)
             {
                 for(int x = 0; x<width; x++)
