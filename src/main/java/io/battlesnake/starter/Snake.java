@@ -225,7 +225,8 @@ public class Snake {
                 int fCoordY = foodLocation.get("y").asInt();
                 searchBoard[fCoordY][fCoordX] = FOOD;
             }
-            System.out.println("Food is Located at: "+ FOOD);
+            
+            System.out.println("Food is Located at: "+ fCoordX + ", " + fCoordY);
 
             // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
             // {
