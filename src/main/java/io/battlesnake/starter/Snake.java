@@ -132,7 +132,7 @@ public class Snake {
             ArrayList<String> dangerMoves = new ArrayList<String>();
             final int SNAKE = 1;
             final int MYHEAD = 2;
-            final int FOOD = 1;
+            final int FOOD = 3;
             String move = "right";
             //don't hit walls
             // if(xLocation<=0)
@@ -242,7 +242,7 @@ public class Snake {
                     int fCoordY = foodLocation.get("y").asInt();
                     searchBoard[fCoordY][fCoordX] = FOOD;
             }
-            System.out.println(FOOD);
+            System.out.println("Food is Located at: "+ FOOD);
 
             // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
             // {
