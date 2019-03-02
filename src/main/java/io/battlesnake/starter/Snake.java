@@ -214,6 +214,26 @@ public class Snake {
                 dangerMoves.add("up");
             }
 
+            //Checking health and then looking foor food if low
+            int health = moveRequest.get("you").get("health").asInt();
+            System.out.println("Health is: " + health);
+
+            for(JsonNode foodLocation: moveRequest.get("board").get("food"))
+            {
+
+                int fCoordX = foodLocation.get("x").asInt();
+                int fCoordY = foodLocation.get("y").asInt();
+                searchBoard[fCoordY][fCoordX] = FOOD;
+            }
+            System.out.println("Food is Located at: "+ FOOD);
+
+            // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
+            // {
+            //     move = [fCoordY][fCoordX];
+            // }
+
+
+
             for(int y = 0; y<height; y++)
             {
                 for(int x = 0; x<width; x++)
@@ -232,23 +252,7 @@ public class Snake {
                 move = posMoves[rand.nextInt(4)];
             }
 
-            int health = moveRequest.get("you").get("health").asInt();
-            System.out.println("Health is: " + health);
-
-            for(JsonNode foodLocation: moveRequest.get("board").get("food"))
-            {
-
-                    int fCoordX = foodLocation.get("x").asInt();
-                    int fCoordY = foodLocation.get("y").asInt();
-                    searchBoard[fCoordY][fCoordX] = FOOD;
-            }
-            System.out.println("Food is Located at: "+ FOOD);
-
-            // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
-            // {
-            //     move = [fCoordY][fCoordX];
-            // }
-
+            
 
             response.put("move", move);
             return response;
