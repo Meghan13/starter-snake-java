@@ -183,28 +183,28 @@ public class Snake {
             if(yLocation>=height-1 - wallBuffer || searchBoard[yLocation + 1][xLocation] == SNAKE)
             {
                 //handles curling into it'self to the right (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation+2] == SNAKE)
+                if(searchBoard[yLocation][xLocation+1] == SNAKE)
                 {
                     dangerMoves.add("right");
                 }
                 //handles curling into it'self to the left (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation-2] == SNAKE)
+                if(searchBoard[yLocation][xLocation-1] == SNAKE)
                 {
                     dangerMoves.add("left");
                 }
-                
+
                 dangerMoves.add("down");
             }
             //handles wall or snake one y to the top
             if(yLocation<=0 + wallBuffer || searchBoard[yLocation - 1][xLocation] == SNAKE)
             {   
                 //handles curling into it'self to the right (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation+2] == SNAKE)
+                if(searchBoard[yLocation][xLocation+1] == SNAKE)
                 {
                     dangerMoves.add("right");
                 }
                 //handles curling into it'self to the left (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation-2] == SNAKE)
+                if(searchBoard[yLocation][xLocation-1] == SNAKE)
                 {
                     dangerMoves.add("left");
                 }
