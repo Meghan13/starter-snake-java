@@ -166,7 +166,10 @@ public class Snake {
                     searchBoard[sCoordY][sCoordX] = SNAKE;
                 }
             }
-            int health =  moveRequest.get("you").get("body").get("health")elements().asInt();
+
+            int health =  moveRequest.get("you").get("body").get("health").asInt();
+            System.out.println("Health is: " + health);
+
             searchBoard[yLocation][xLocation] = MYHEAD;
             int wallBuffer = 1;
 
