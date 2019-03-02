@@ -226,7 +226,7 @@ public class Snake {
                 searchBoard[fCoordY][fCoordX] = FOOD;
             }
             
-            System.out.println("Food is Located at: "+ fCoordX + ", " + fCoordY);
+            //System.out.println("Food is Located at: "+ fCoordX + ", " + fCoordY);
 
             for(int y = 0; y<height; y++)
             {
