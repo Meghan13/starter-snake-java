@@ -242,6 +242,12 @@ public class Snake {
                     int fCoordY = foodLocation.get("y").asInt();
                     searchBoard[fCoordY][fCoordX] = FOOD;
             }
+            System.out.println(FOOD);
+
+            // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
+            // {
+            //     move = [fCoordY][fCoordX];
+            // }
 
 
             response.put("move", move);
