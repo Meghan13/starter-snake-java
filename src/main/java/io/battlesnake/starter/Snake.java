@@ -228,13 +228,6 @@ public class Snake {
             
             System.out.println("Food is Located at: "+ fCoordX + ", " + fCoordY);
 
-            // if(health<=10 && searchBoard[yLocation + 1][xLocation + 1] == FOOD)
-            // {
-            //     move = [fCoordY][fCoordX];
-            // }
-
-
-
             for(int y = 0; y<height; y++)
             {
                 for(int x = 0; x<width; x++)
@@ -253,6 +246,23 @@ public class Snake {
                 move = posMoves[rand.nextInt(4)];
             }
 
+            //go for food
+            if(health<=50 && searchBoard[yLocation + 1][xLocation] == FOOD)
+            {
+                move = "down";
+            }
+            if(health<=50 && searchBoard[yLocation -1][xLocation] == FOOD)
+            {
+                move = "up";
+            }
+            if(health<=50 && searchBoard[yLocation][xLocation+1] == FOOD)
+            {
+                move = "right";
+            }
+            if(health<=50 && searchBoard[yLocation][xLocation-1] == FOOD)
+            {
+                move = "left";
+            }
             
 
             response.put("move", move);
