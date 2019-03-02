@@ -167,7 +167,7 @@ public class Snake {
                 }
             }
 
-            int health =  moveRequest.get("you").get("health");
+            int health =  moveRequest.get("you").get("health").elements().next();
             System.out.println("Health is: " + health);
 
             searchBoard[yLocation][xLocation] = MYHEAD;
