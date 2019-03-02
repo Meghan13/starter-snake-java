@@ -132,6 +132,7 @@ public class Snake {
             ArrayList<String> dangerMoves = new ArrayList<String>();
             final int SNAKE = 1;
             final int MYHEAD = 2;
+            final int FOOD = 1;
             String move = "right";
             //don't hit walls
             // if(xLocation<=0)
@@ -233,6 +234,17 @@ public class Snake {
 
             int health = moveRequest.get("you").get("health").asInt();
             System.out.println("Health is: " + health);
+
+            for(JsonNode food: moveRequest.get("board").get("food"))
+            {
+                for(JsonNode foodLocation: food.get("board").get("food").elements().next())
+                {
+                    int fCoordX = foodLocation.get("x").asInt();
+                    int fCoordY = foodLocation.get("y").asInt();
+                    searchBoard[fCoordY][fCoordX] = FOOD;
+                }
+            }
+
 
             response.put("move", move);
             return response;
