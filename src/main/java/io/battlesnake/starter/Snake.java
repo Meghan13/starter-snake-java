@@ -235,14 +235,12 @@ public class Snake {
             int health = moveRequest.get("you").get("health").asInt();
             System.out.println("Health is: " + health);
 
-            for(JsonNode food: moveRequest.get("board").get("food"))
+            for(JsonNode foodLocation: moveRequest.get("board").get("food"))
             {
-                for(JsonNode foodLocation: food.get("board").get("food").elements().next())
-                {
+
                     int fCoordX = foodLocation.get("x").asInt();
                     int fCoordY = foodLocation.get("y").asInt();
                     searchBoard[fCoordY][fCoordX] = FOOD;
-                }
             }
 
 
