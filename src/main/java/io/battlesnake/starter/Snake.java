@@ -1,4 +1,4 @@
-package io.battlesnake.starter;
+ package io.battlesnake.starter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -169,23 +169,35 @@ public class Snake {
             searchBoard[yLocation][xLocation] = MYHEAD;
             int wallBuffer = 1;
 
+            //handles wall or snake one x to the right
             if(xLocation>=width-1 - wallBuffer || searchBoard[yLocation][xLocation + 1] == SNAKE)
             {
                 dangerMoves.add("right");
             }
-            
+            //handles wall or snake one x to the left
             if(xLocation<=0 + wallBuffer || searchBoard[yLocation][xLocation - 1] == SNAKE)
             {
                 dangerMoves.add("left");
             }
-
+            //handles wall or snake one y to the bottom
             if(yLocation>=height-1 - wallBuffer || searchBoard[yLocation + 1][xLocation] == SNAKE)
             {
                 dangerMoves.add("down");
             }
-
+            //handles wall or snake one y to the top
             if(yLocation<=0 + wallBuffer || searchBoard[yLocation - 1][xLocation] == SNAKE)
-            {
+            {   
+                //handles curling into it'self to the right (looking ahead by 2 squares)
+                if(searchBoard[yLocation][xLocation+2])
+                {
+                    dangerMoves.add("right");
+                }
+                //handles curling into it'self to the left (looking ahead by 2 squares)
+                if(searchBoard[yLocation][xLocation-2])
+                {
+                    dangerMoves.add("left");
+                }
+                
                 dangerMoves.add("up");
             }
 
