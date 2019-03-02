@@ -188,12 +188,12 @@ public class Snake {
             if(yLocation<=0 + wallBuffer || searchBoard[yLocation - 1][xLocation] == SNAKE)
             {   
                 //handles curling into it'self to the right (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation+2])
+                if(searchBoard[yLocation][xLocation+2] == SNAKE)
                 {
                     dangerMoves.add("right");
                 }
                 //handles curling into it'self to the left (looking ahead by 2 squares)
-                if(searchBoard[yLocation][xLocation-2])
+                if(searchBoard[yLocation][xLocation-2] == SNAKE)
                 {
                     dangerMoves.add("left");
                 }
