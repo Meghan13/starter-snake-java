@@ -167,9 +167,6 @@ public class Snake {
                 }
             }
 
-            int health =  moveRequest.get("you").get("health").elements().next();
-            System.out.println("Health is: " + health);
-
             searchBoard[yLocation][xLocation] = MYHEAD;
             int wallBuffer = 1;
 
@@ -235,7 +232,7 @@ public class Snake {
             }
 
             int health = moveRequest.get("you").get("health").asInt();
-            //System.out.println("Health is: " + health);
+            System.out.println("Health is: " + health);
 
             response.put("move", move);
             return response;
